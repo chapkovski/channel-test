@@ -49,7 +49,10 @@ window.onload = function() {
   var form = document.getElementById('form');
   // var messageField = document.getElementById('id_q_1');
   // Create a new WebSocket.
-  var socket = new WebSocket("ws://" + window.location.host + "/qchannel/");
+
+var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+var socket = new WebSocket(ws_scheme + '://' + window.location.host + "/qchannel/");
+  
  buttClick = function(who){
    console.log('WHO:::::'+who);
 
