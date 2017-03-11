@@ -35,7 +35,8 @@
 
 
 {% block scripts %}
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type='text/javascript' src='{% static 'js/jquery-ui.js' %}'></script>
+
 <script>
 window.onload = function() {
   $(window).keydown(function(event){
