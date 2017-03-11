@@ -8,12 +8,18 @@ from string import ascii_uppercase
 
 
 def ws_message(message):
+    # obtaining the message content
     jsonmessage = json.loads(message.content['text'])
+    # taking some fields from it like player's id
     playerpk = str(jsonmessage['playerpk'])
     subsessionpk = str(jsonmessage['subsession'])
+    # the question id is here:
     what = str(jsonmessage['q'])
+    # we find the player with this pk and (just in case) the subsession number
     myplayer = Player.objects.get(pk=playerpk,subsession=subsessionpk)
+    # we set the field (from what) to the value of input (stored in whathappens)
     setattr(myplayer, what,str(jsonmessage['whathappens']))
+    # and save the instance
     myplayer.save()
 
 

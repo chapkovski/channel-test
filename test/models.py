@@ -31,8 +31,8 @@ class Player(BasePlayer):
     pass
 
 
-
-for i in range(1,Constants.num_qs+1):
+# we create 10 questions in player model
+for i in range(1, Constants.num_qs+1):
     Player.add_to_class("q_{}".format(i),
                         models.CharField(
             verbose_name="Question number {}".format(i),
