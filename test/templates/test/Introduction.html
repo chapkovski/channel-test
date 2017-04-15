@@ -12,6 +12,9 @@
       {% for field in form %}
         <tr >
           <td>{% formfield field %} </td>
+          <td class='errors' id='err_{{field.html_name}}'>
+{{field.field.rightanswer}}
+          </td>
           <td>
             <input id='btn_{{field.html_name}}' onclick="buttClick('{{field.html_name}}')"
             class="btn  btn-large btn-primary next-button" type="button" value="Next question">
@@ -92,8 +95,9 @@
     };
 
     // Handle messages sent by the server.
-    // socket.onmessage = function(event) {
-    // };
+    socket.onmessage = function(event) {
+      console.log(event);
+    };
 
     // Show a disconnected message when the WebSocket is closed.
     socket.onclose = function(event) {

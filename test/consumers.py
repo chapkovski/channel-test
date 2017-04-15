@@ -8,6 +8,13 @@ from string import ascii_uppercase
 
 
 def ws_message(message):
+    print("REPLY:::", message.reply_channel)
+    message.reply_channel.send({
+        "text": json.dumps({
+            "join": 'str(room.id)',
+            "title": 'room.title',
+        }),
+    })
     # obtaining the message content
     jsonmessage = json.loads(message.content['text'])
     # taking some fields from it like player's id
